@@ -14,6 +14,7 @@ import authRoutes from "./routes/auth.js"
 import courseRoutes from "./routes/courses.js"
 import studentRoutes from "./routes/student.js"
 import teacherRoutes from "./routes/teacher.js"
+import cors from 'cors';
 
 
 const app = express()
@@ -32,6 +33,7 @@ mongoose.connect(process.env.MONGODB_URI).then(()=>{
 //middlewares
 app.use(morgan('tiny'))
 app.use(express.json())
+app.use(cors())
 // auth routes 
 app.use("/auth" , authRoutes)
 // courses routes 
